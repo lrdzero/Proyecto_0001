@@ -42,6 +42,7 @@ public final class R {
         public static final int activity_main=0x7f040000;
         public static final int activity_main_activity2=0x7f040001;
         public static final int activity_my_activity12=0x7f040002;
+        public static final int siiiu=0x7f040003;
     }
     public static final class menu {
         public static final int menu_main=0x7f080000;
