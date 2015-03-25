@@ -4,5 +4,6 @@
     <string name="app_name">GPSAlarm</string>
     <string name="hello_world">COCK</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_block_config">BlockConfig</string>
 
 </resources>
