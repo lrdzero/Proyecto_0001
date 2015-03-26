@@ -1,5 +1,5 @@
 package com.example.gpsalarm;
-
+/*
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -206,7 +206,7 @@ public class audioListAdapter extends BaseAdapter {
 							@Override
 							public void onClick(View v) {
 								/*if(!q.isEmpty())
-									q.peek().cancel(true);*/
+									q.peek().cancel(true);
 								String[] testArray = new String[] {"Renombrar","Añadir a categoría"};
 								AlertDialog dialog1;
 								
@@ -419,3 +419,4 @@ public class audioListAdapter extends BaseAdapter {
 
 
 }
+*/

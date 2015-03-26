@@ -12,7 +12,9 @@ import android.app.ListActivity;
 import android.view.Menu;
 import android.widget.TextView;
 
-public class ListaGrabaciones extends ListActivity {
+/*
+ * public class ListaGrabaciones extends ListActivity {
+ 
 	
 	TextView footerView;
 	audioListAdapter alAdapter;
@@ -30,7 +32,7 @@ public class ListaGrabaciones extends ListActivity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.lista_grabaciones, menu);
+	//	getMenuInflater().inflate(R.menu.lista_grabaciones, menu);
 		return true;
 	}
 	
@@ -50,7 +52,7 @@ public class ListaGrabaciones extends ListActivity {
 		 File sdCard = Environment.getExternalStorageDirectory();
 		 File f= new File( sdCard.getAbsolutePath()+"/MisGrabaciones");
 		 for(String i:f.list()){
-			 alAdapter.addAudio(new audioItem(i));
+			// alAdapter.addAudio(new audioItem(i));
 		 }
 		 
 		
@@ -60,4 +62,4 @@ public class ListaGrabaciones extends ListActivity {
 	
 	}
 
-}
+}*/
