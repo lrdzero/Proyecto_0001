@@ -1,15 +1,19 @@
 package com.example.gpsalarm;
 
+
+
 import android.support.v7.app.ActionBarActivity;
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -23,6 +27,7 @@ public class BlockConfig extends Activity {
 	private TextView currentHour;
 	private TextView currentDate;
 	int hour, min, year, month,day;
+	private GPSAlarmService service;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +64,20 @@ public class BlockConfig extends Activity {
 			}
 			
 		});
+			
+			Button alarma =(Button)findViewById(R.id.button1);
+			
+			alarma.setOnClickListener(new OnClickListener(){
+				public void onClick(View v){
+				Intent i =new Intent(BlockConfig.this,Alarm.class);	
+				
+				hour=hour*60*60*1000;
+				min=min*60*1000;
+				int result =hour+min;
+				
+				service.onStart(BlockConfig.this,i,result);
+				}
+			});
 	}
 
    protected Dialog onCreateDialog(int id){
