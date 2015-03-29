@@ -51,7 +51,7 @@ public class MainActivity extends Activity {
 		la.setFooterDividersEnabled(true);
 		la.setAdapter(alAdapter);
 		
-		if (!getFileStreamPath(fileName).exists()) {
+		//if (!getFileStreamPath(fileName).exists()) {
 			//escribo una alarma de prueba
 			FileOutputStream fos=null;
 			try {
@@ -67,9 +67,13 @@ public class MainActivity extends Activity {
 			pw.println("6:00");
 			pw.println("4");
 			pw.println("Castro del Río");
+			pw.println("-");
+			pw.println("18:00");
+			pw.println("3.4");
+			pw.println("Baza");
 
 			pw.close();
-		}
+		//}
 
 		//leo todas las alarmas para listarlas en el listView
 			FileInputStream fis=null;
@@ -87,18 +91,30 @@ public class MainActivity extends Activity {
 			String d;
 			double dist;
 			String ciudad;
-
+			String line="";
 			try {
-				//while (null != (line = br.readLine())) {
-				
-				d=br.readLine();
-				dist=Double.valueOf(br.readLine());
-				ciudad=br.readLine();
+				while (null != (line = br.readLine())) {
+					
+					if(!line.equals("-")){
+						d=line;
+						
+						
+					}
+					else
+						d=br.readLine();
+						
+						
+						
+					dist=Double.valueOf(br.readLine());
+					ciudad=br.readLine();
+					alAdapter.addAlarm(new AlarmMap(d,dist,ciudad));
+			
+				}
 				
 					
 					
 				
-				alAdapter.addAlarm(new AlarmMap(d,dist,ciudad));
+				
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
