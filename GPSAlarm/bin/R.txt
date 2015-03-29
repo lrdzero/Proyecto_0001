@@ -343,8 +343,6 @@ int drawable ic_launcher 0x7f020034
 int drawable mybackgroud 0x7f020035
 int drawable reloj 0x7f020036
 int id LinearLayout1 0x7f09003f
-int id TextView01 0x7f090050
-int id TextView02 0x7f09004f
 int id action_bar 0x7f090031
 int id action_bar_activity_content 0x7f090003
 int id action_bar_container 0x7f090030
@@ -365,11 +363,13 @@ int id beginning 0x7f09001b
 int id bienvenida 0x7f090041
 int id button1 0x7f090049
 int id checkbox 0x7f090029
+int id ciudades 0x7f090050
 int id collapseActionView 0x7f090015
 int id decor_content_parent 0x7f09002f
 int id default_activity_button 0x7f090024
 int id dialog 0x7f090019
 int id disableHome 0x7f09000d
+int id distancia 0x7f09004f
 int id dropdown 0x7f09001a
 int id editText1 0x7f090047
 int id edit_query 0x7f090033
@@ -378,6 +378,7 @@ int id expand_activities_button 0x7f090022
 int id expanded_menu 0x7f090028
 int id home 0x7f090000
 int id homeAsUp 0x7f09000e
+int id hora 0x7f09004e
 int id icon 0x7f090026
 int id ifRoom 0x7f090016
 int id image 0x7f090023
@@ -389,7 +390,6 @@ int id listView1 0x7f090052
 int id list_item 0x7f090025
 int id middle 0x7f09001d
 int id never 0x7f090017
-int id nombreAudio 0x7f09004e
 int id none 0x7f09000f
 int id normal 0x7f09000b
 int id progress_circular 0x7f090007
@@ -451,7 +451,7 @@ int layout abc_search_dropdown_item_icons_2line 0x7f030014
 int layout abc_search_view 0x7f030015
 int layout abc_simple_dropdown_hint 0x7f030016
 int layout activity_block_config 0x7f030017
-int layout activity_lista_grabaciones 0x7f030018
+int layout activity_lista_alarmas 0x7f030018
 int layout activity_main 0x7f030019
 int layout support_simple_spinner_dropdown_item 0x7f03001a
 int menu block_config 0x7f0c0000

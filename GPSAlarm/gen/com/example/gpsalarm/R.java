@@ -1644,8 +1644,6 @@ containing a value of this type.
     }
     public static final class id {
         public static final int LinearLayout1=0x7f09003f;
-        public static final int TextView01=0x7f090050;
-        public static final int TextView02=0x7f09004f;
         public static final int action_bar=0x7f090031;
         public static final int action_bar_activity_content=0x7f090003;
         public static final int action_bar_container=0x7f090030;
@@ -1666,11 +1664,13 @@ containing a value of this type.
         public static final int bienvenida=0x7f090041;
         public static final int button1=0x7f090049;
         public static final int checkbox=0x7f090029;
+        public static final int ciudades=0x7f090050;
         public static final int collapseActionView=0x7f090015;
         public static final int decor_content_parent=0x7f09002f;
         public static final int default_activity_button=0x7f090024;
         public static final int dialog=0x7f090019;
         public static final int disableHome=0x7f09000d;
+        public static final int distancia=0x7f09004f;
         public static final int dropdown=0x7f09001a;
         public static final int editText1=0x7f090047;
         public static final int edit_query=0x7f090033;
@@ -1679,6 +1679,7 @@ containing a value of this type.
         public static final int expanded_menu=0x7f090028;
         public static final int home=0x7f090000;
         public static final int homeAsUp=0x7f09000e;
+        public static final int hora=0x7f09004e;
         public static final int icon=0x7f090026;
         public static final int ifRoom=0x7f090016;
         public static final int image=0x7f090023;
@@ -1690,7 +1691,6 @@ containing a value of this type.
         public static final int list_item=0x7f090025;
         public static final int middle=0x7f09001d;
         public static final int never=0x7f090017;
-        public static final int nombreAudio=0x7f09004e;
         public static final int none=0x7f09000f;
         public static final int normal=0x7f09000b;
         public static final int progress_circular=0x7f090007;
@@ -1778,7 +1778,7 @@ containing a value of this type.
         public static final int abc_search_view=0x7f030015;
         public static final int abc_simple_dropdown_hint=0x7f030016;
         public static final int activity_block_config=0x7f030017;
-        public static final int activity_lista_grabaciones=0x7f030018;
+        public static final int activity_lista_alarmas=0x7f030018;
         public static final int activity_main=0x7f030019;
         public static final int support_simple_spinner_dropdown_item=0x7f03001a;
     }

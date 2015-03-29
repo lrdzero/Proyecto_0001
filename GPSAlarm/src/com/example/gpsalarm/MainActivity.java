@@ -1,34 +1,58 @@
 package com.example.gpsalarm;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
+import java.util.Date;
+
+
+
+
 
 import android.support.v7.appcompat.*;
 import android.support.v7.app.*;
+import android.text.format.DateFormat;
+
 import android.app.Activity;
+import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 	
-	String fileName="Filename.txt";
+	String fileName="AlarmMap.txt";
+	private File f;
+	private AlarmMapAdapter alAdapter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
+		alAdapter = new AlarmMapAdapter(this);
+		ListView la = (ListView)findViewById(R.id.listView1);
+		la.setFooterDividersEnabled(true);
+		la.setAdapter(alAdapter);
+		
 		if (!getFileStreamPath(fileName).exists()) {
-			
+			//escribo una alarma de prueba
 			FileOutputStream fos=null;
 			try {
 				fos = openFileOutput(fileName, MODE_PRIVATE);
@@ -40,24 +64,58 @@ public class MainActivity extends Activity {
 			PrintWriter pw = new PrintWriter(new BufferedWriter(
 					new OutputStreamWriter(fos)));
 
-			pw.println("Line 1: This is a test of the File Writing API");
-			pw.println("Line 2: This is a test of the File Writing API");
-			pw.println("Line 3: This is a test of the File Writing API");
+			pw.println("6:00");
+			pw.println("4");
+			pw.println("Castro del Río");
 
 			pw.close();
+		}
+
+		//leo todas las alarmas para listarlas en el listView
+			FileInputStream fis=null;
+			try {
+				fis = openFileInput(fileName);
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			BufferedReader br = new BufferedReader(new InputStreamReader(fis));
 
 			
-		}
-		Button boton1 = (Button)findViewById(R.id.button1);
-		
-		boton1.setOnClickListener(new OnClickListener(){
 			
-			@Override
-			public void onClick(View v){
-				Intent intent = new Intent(MainActivity.this,BlockConfig.class);
-				startActivity(intent);
+			
+			String d;
+			double dist;
+			String ciudad;
+
+			try {
+				//while (null != (line = br.readLine())) {
+				
+				d=br.readLine();
+				dist=Double.valueOf(br.readLine());
+				ciudad=br.readLine();
+				
+					
+					
+				
+				alAdapter.addAlarm(new AlarmMap(d,dist,ciudad));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
-		});
+
+			try {
+				br.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			
+		
+		
+		
+		
 		
 	}
 
