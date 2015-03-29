@@ -25,7 +25,7 @@
                 android:layout_height="48dp" >
 
                 <TextView
-                    android:id="@+id/textView1"
+                    android:id="@+id/bienvenida"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
@@ -56,7 +56,7 @@
                     android:layout_height="26dp"
                     android:layout_alignParentBottom="true"
                     android:layout_marginLeft="16dp"
-                    android:layout_toRightOf="@+id/textView1"
+                    android:layout_toRightOf="@+id/bienvenida"
                     android:adjustViewBounds="true"
                     android:src="@drawable/reloj" />
 

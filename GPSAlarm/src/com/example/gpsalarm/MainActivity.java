@@ -1,23 +1,53 @@
 package com.example.gpsalarm;
 
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+
 import android.support.v7.appcompat.*;
 import android.support.v7.app.*;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends Activity {
+	
+	String fileName="Filename.txt";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		
+		if (!getFileStreamPath(fileName).exists()) {
+			
+			FileOutputStream fos=null;
+			try {
+				fos = openFileOutput(fileName, MODE_PRIVATE);
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			PrintWriter pw = new PrintWriter(new BufferedWriter(
+					new OutputStreamWriter(fos)));
+
+			pw.println("Line 1: This is a test of the File Writing API");
+			pw.println("Line 2: This is a test of the File Writing API");
+			pw.println("Line 3: This is a test of the File Writing API");
+
+			pw.close();
+
+			
+		}
 		Button boton1 = (Button)findViewById(R.id.button1);
 		
 		boton1.setOnClickListener(new OnClickListener(){

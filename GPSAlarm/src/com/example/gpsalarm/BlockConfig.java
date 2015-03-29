@@ -1,6 +1,7 @@
 package com.example.gpsalarm;
 
 import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.app.DatePickerDialog;
@@ -15,7 +16,7 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-public class BlockConfig extends ActionBarActivity {
+public class BlockConfig extends Activity {
 	
 	private final int dialog_id=0;
 	private final int dialog_id2=1;
