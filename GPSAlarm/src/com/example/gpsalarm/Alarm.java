@@ -22,28 +22,36 @@ public class Alarm extends BroadcastReceiver{
 		@Override
 		public void onReceive(Context context, Intent intent) {
 			// TODO Auto-generated method stub
-			
+			/*
 			PowerManager pm =(PowerManager) context.getSystemService(Context.POWER_SERVICE);
 			PowerManager.WakeLock wl = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,"");
 			Vibrator vibra = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
 			r= RingtoneManager.getRingtone(context, notification);
 			wl.acquire();
-			Toast.makeText(context,"alarmaaaa", Toast.LENGTH_LONG).show();
+			
 			vibra.vibrate(2000);
 			r.play();
 			wl.release();
-			
+			*/
+			Toast.makeText(context,"alarmaaaa", Toast.LENGTH_LONG).show();
+			showScreem(context);
 			
 		}
 
-		
+		public void showScreem(Context context){
+			Intent nuevo = new Intent(context,ControlAlarma.class);
+			nuevo.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK );
+			nuevo.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP );
+			//Toast.makeText(context, "entrooo", Toast.LENGTH_LONG).show();
+			context.startActivity(nuevo);
+		}
 		 public void SetAlarm(Context context,int tamanio)
 	     {
 				AlarmManager mg=(AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
 				  Intent intent  = new Intent(context, Alarm.class);
 		          PendingIntent pIntent = PendingIntent.getBroadcast(context, ALARM_REQUEST_CODE, intent,  PendingIntent.FLAG_CANCEL_CURRENT);
 
-		          mg.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 2*1000, pIntent);  
+		          mg.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + tamanio, pIntent);  
 	     }
 		 
 		 public void CancelAlarm(Context context)
@@ -54,7 +62,6 @@ public class Alarm extends BroadcastReceiver{
 	         alarmManager.cancel(sender);
 	     }
 	}
-
 
 	
 	

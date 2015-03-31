@@ -4,6 +4,8 @@ package com.example.gpsalarm;
 
 
 
+
+
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
@@ -43,7 +45,7 @@ public class BlockConfig extends Activity {
 		
 		
 		
-	
+		service = new GPSAlarmService();
 		
 		Log.i("IEEEEEEE", "Entered onActivityResult()");
 		
@@ -51,7 +53,7 @@ public class BlockConfig extends Activity {
 		Button confirm =(Button)findViewById(R.id.confirm);
 		final SeekBar sb = (SeekBar)findViewById(R.id.DistBar);
 		final TextView tv =(TextView)findViewById(R.id.km);
-			
+		 
 		confirm.setOnClickListener(new OnClickListener(){
 			public void onClick(View v){
 				
@@ -64,19 +66,12 @@ public class BlockConfig extends Activity {
 				    //Toast.makeText(BlockConfig.this, "siuu", Toast.LENGTH_SHORT).show();
 				setResult(RESULT_OK,intent);
 				Log.i("IEEEEEEE", "Entered onActivityResult()");
-					
+				Intent i =new Intent(BlockConfig.this,Alarm.class);
+				service.onStart(BlockConfig.this,i,5*1000);
 					// TODO - Finish the Activity
 				finish();
 					
-				/*	
-				Intent i =new Intent(BlockConfig.this,Alarm.class);	
-				
-				hour=hour*60*60*1000;
-				min=min*60*1000;
-				int result =hour+min;
-				
-				service.onStart(BlockConfig.this,i,result);
-		*/}
+			}
 		});
 		
 		
