@@ -97,13 +97,13 @@ public class BlockConfig extends Activity {
 			@Override
 			public void onStartTrackingTouch(SeekBar seekBar) {
 				// TODO Auto-generated method stub
-				//Toast.makeText(BlockConfig.this, "start", Toast.LENGTH_SHORT).show();
+				
 			}
 
 			@Override
 			public void onStopTrackingTouch(SeekBar seekBar) {
 				// TODO Auto-generated method stub
-			//	Toast.makeText(BlockConfig.this, "stop", Toast.LENGTH_SHORT).show();
+			
 				
 			}
 		});
