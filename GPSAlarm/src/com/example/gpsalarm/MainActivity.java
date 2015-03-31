@@ -10,7 +10,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
-import java.util.Date;
+
+
 
 
 
@@ -23,6 +24,7 @@ import android.text.format.DateFormat;
 import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
@@ -37,6 +39,7 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity {
 	
+	static private final int GET_TEXT_REQUEST_CODE = 1;
 	String fileName="AlarmMap.txt";
 	private File f;
 	private AlarmMapAdapter alAdapter;
@@ -48,6 +51,17 @@ public class MainActivity extends Activity {
 		
 		alAdapter = new AlarmMapAdapter(this);
 		ListView la = (ListView)findViewById(R.id.listView1);
+		TextView newalarm = (TextView)findViewById(R.id.nuevoalarm);
+		
+		newalarm.setOnClickListener(new View.OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				Intent na = new Intent(MainActivity.this,BlockConfig.class);
+				startActivityForResult(na,GET_TEXT_REQUEST_CODE);
+			}
+			
+		});
 		la.setFooterDividersEnabled(true);
 		la.setAdapter(alAdapter);
 		
@@ -64,11 +78,11 @@ public class MainActivity extends Activity {
 			PrintWriter pw = new PrintWriter(new BufferedWriter(
 					new OutputStreamWriter(fos)));
 
-			pw.println("6:00");
+			
 			pw.println("4");
 			pw.println("Castro del Río");
 			pw.println("-");
-			pw.println("18:00");
+	
 			pw.println("3.4");
 			pw.println("Baza");
 
@@ -88,7 +102,7 @@ public class MainActivity extends Activity {
 			
 			
 			
-			String d;
+			
 			double dist;
 			String ciudad;
 			String line="";
@@ -96,18 +110,18 @@ public class MainActivity extends Activity {
 				while (null != (line = br.readLine())) {
 					
 					if(!line.equals("-")){
-						d=line;
+						dist=Double.valueOf(line);
 						
 						
 					}
 					else
-						d=br.readLine();
+						dist=Double.valueOf(br.readLine());
 						
 						
 						
-					dist=Double.valueOf(br.readLine());
+				
 					ciudad=br.readLine();
-					alAdapter.addAlarm(new AlarmMap(d,dist,ciudad));
+					alAdapter.addAlarm(new AlarmMap(dist,ciudad));
 			
 				}
 				
@@ -153,4 +167,29 @@ public class MainActivity extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+	
+	 
+		@Override
+		protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+	        
+			Log.i("AlarmMap", "Entered onActivityResult()");
+			Log.i("AlarmMapresult", String.valueOf(resultCode));
+			
+			// TODO - Process the result only if this method received both a
+			// RESULT_OK result code and a recognized request code
+			if (resultCode == Activity.RESULT_OK && requestCode == GET_TEXT_REQUEST_CODE) {
+			// If so, update the Textview showing the user-entered text.
+				Log.i("Ha entrado","");
+				alAdapter.addAlarm(new AlarmMap(Double.valueOf(data.getStringExtra("distancia")),data.getStringExtra("ciudad")));
+				alAdapter.notifyDataSetChanged();
+			}
+			else{
+				Log.i("Nada","");
+			}
+		
+	    
+	    
+	    
+	    
+	    }
 }

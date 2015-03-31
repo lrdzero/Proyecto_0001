@@ -10,36 +10,22 @@
     tools:context=".ListaGrabaciones" >
 
     <TextView
-        android:id="@+id/hora"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/imageButton1"
-        android:layout_alignParentLeft="true"
-        android:layout_marginBottom="9dp"
-        android:layout_marginLeft="34dp"
-        android:text="Hora"
-        android:textColor="@color/carmin"
-        android:textSize="25sp" />
-
-    <TextView
         android:id="@+id/distancia"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/hora"
-        android:layout_alignBottom="@+id/hora"
         android:layout_alignParentRight="true"
         android:layout_marginRight="50dp"
         android:text="Distancia"
         android:textColor="@color/carmin"
-        android:textSize="17sp" />
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/ciudades"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/hora"
-        android:layout_below="@+id/hora"
-        android:layout_marginTop="35dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@+id/distancia"
+        android:layout_marginLeft="39dp"
         android:text="Ciudades"
         android:textColor="@color/carmin"
         android:textSize="20sp" />
@@ -48,9 +34,9 @@
         android:id="@+id/toggleButton1"
         android:layout_width="68dp"
         android:layout_height="40dp"
-        android:layout_alignBottom="@+id/ciudades"
         android:layout_alignRight="@+id/distancia"
-        
+        android:layout_below="@+id/ciudades"
+        android:layout_marginTop="23dp"
         android:minHeight="70dp"
         android:text="ToggleButton" />
 

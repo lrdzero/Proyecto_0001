@@ -94,11 +94,11 @@ public class AlarmMapAdapter extends BaseAdapter {
 			    //convertView = inflater.inflate(R.layout.options, null);
 			}
 			
-			final TextView hora= (TextView)convertView.findViewById(R.id.hora);
+			
 			final TextView ciudad= (TextView)convertView.findViewById(R.id.ciudades);
 			final TextView distancia= (TextView)convertView.findViewById(R.id.distancia);
 			
-			hora.setText(mItems.get(arg).getDate());
+			
 			distancia.setText(String.valueOf(mItems.get(arg).getDistancia()));
 			ciudad.setText(mItems.get(arg).getCiudad());
 			

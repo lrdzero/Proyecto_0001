@@ -20,12 +20,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/bienvenida"
-        android:layout_below="@+id/bienvenida"
-        android:layout_marginTop="24dp"
+        android:layout_below="@+id/nuevoalarm"
         android:background="@drawable/mybackgroud"
         android:drawSelectorOnTop="true"
         android:footerDividersEnabled="true" >
 
     </ListView>
+
+    <TextView
+        android:id="@+id/nuevoalarm"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/listView1"
+        android:layout_below="@+id/bienvenida"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:padding="10dp"
+        android:background="@drawable/mybackgroud"
+        android:gravity="center"
+        android:text="Nueva alarma" />
 
 </RelativeLayout>

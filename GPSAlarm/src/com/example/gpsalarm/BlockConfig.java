@@ -2,20 +2,25 @@ package com.example.gpsalarm;
 
 
 
-import android.support.v7.app.ActionBarActivity;
+
+
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.SeekBar;
+import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -37,38 +42,33 @@ public class BlockConfig extends Activity {
 		
 		
 		
-		ImageButton timeButton =(ImageButton)findViewById(R.id.imageButton1);
 		
-		timeButton.setOnClickListener(new OnClickListener(){
+	
+		
+		Log.i("IEEEEEEE", "Entered onActivityResult()");
+		
+		//Botón de confirmación
+		Button confirm =(Button)findViewById(R.id.confirm);
+		final SeekBar sb = (SeekBar)findViewById(R.id.DistBar);
+		final TextView tv =(TextView)findViewById(R.id.km);
 			
-			@Override
+		confirm.setOnClickListener(new OnClickListener(){
 			public void onClick(View v){
 				
-				showDialog(dialog_id);
+				Intent intent = new Intent();
+					//EditText mEditText = (EditText)findViewById(R.id.editText1);
 				
-				
-			}
-			
-		});
-		
-		ImageButton dateButton =(ImageButton) findViewById(R.id.imageButton2);
-		
-			dateButton.setOnClickListener(new OnClickListener(){
-			
-			@Override
-			public void onClick(View v){
-				
-				showDialog(dialog_id2);
-				
-				
-			}
-			
-		});
-			
-			Button alarma =(Button)findViewById(R.id.button1);
-			
-			alarma.setOnClickListener(new OnClickListener(){
-				public void onClick(View v){
+				   // intent.putExtra("ciudad",mEditText.getText().toString());
+			    intent.putExtra("distancia",String.valueOf(sb.getProgress()));
+					// TODO - Set Activity's result with result code RESULT_OK
+				    //Toast.makeText(BlockConfig.this, "siuu", Toast.LENGTH_SHORT).show();
+				setResult(RESULT_OK,intent);
+				Log.i("IEEEEEEE", "Entered onActivityResult()");
+					
+					// TODO - Finish the Activity
+				finish();
+					
+				/*	
 				Intent i =new Intent(BlockConfig.this,Alarm.class);	
 				
 				hour=hour*60*60*1000;
@@ -76,8 +76,37 @@ public class BlockConfig extends Activity {
 				int result =hour+min;
 				
 				service.onStart(BlockConfig.this,i,result);
-				}
-			});
+		*/}
+		});
+		
+		
+		
+		sb.setOnSeekBarChangeListener(new OnSeekBarChangeListener(){
+		
+			public void onProgressChanged(    SeekBar seekBar,    int progress,    boolean fromUser){
+			      
+			    	  final TextView tc= (TextView)findViewById(R.id.km);
+			      	  tc.setText(String.valueOf(sb.getProgress())+" km");
+			     
+			   
+			      	
+			      
+			      //Toast.makeText(BlockConfig.this, String.valueOf(sb.getProgress()), Toast.LENGTH_SHORT).show();
+			}
+
+			@Override
+			public void onStartTrackingTouch(SeekBar seekBar) {
+				// TODO Auto-generated method stub
+				//Toast.makeText(BlockConfig.this, "start", Toast.LENGTH_SHORT).show();
+			}
+
+			@Override
+			public void onStopTrackingTouch(SeekBar seekBar) {
+				// TODO Auto-generated method stub
+			//	Toast.makeText(BlockConfig.this, "stop", Toast.LENGTH_SHORT).show();
+				
+			}
+		});
 	}
 
    protected Dialog onCreateDialog(int id){

@@ -20,83 +20,6 @@
             android:layout_height="match_parent"
             android:orientation="vertical" >
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="48dp" >
-
-                <TextView
-                    android:id="@+id/bienvenida"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentTop="true"
-                    android:text="@string/Hora" />
-
-                <TextView
-                    android:id="@+id/textView6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_toLeftOf="@+id/imageButton1"
-                    android:text="@string/arrive_hour" />
-
-                <ImageButton
-                    android:id="@+id/imageButton2"
-                    android:layout_width="26dp"
-                    android:layout_height="26dp"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="21dp"
-                    android:adjustViewBounds="true"
-                    android:src="@drawable/calendar" />
-
-                <ImageButton
-                    android:id="@+id/imageButton1"
-                    android:layout_width="26dp"
-                    android:layout_height="26dp"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginLeft="16dp"
-                    android:layout_toRightOf="@+id/bienvenida"
-                    android:adjustViewBounds="true"
-                    android:src="@drawable/reloj" />
-
-                <TextView
-                    android:id="@+id/textView7"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginRight="26dp"
-                    android:layout_toLeftOf="@+id/imageButton2"
-                    android:text="@string/arrive_date" />
-
-            </RelativeLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="1.5dp"
-                android:layout_marginTop="10dp"
-                android:background="#FFFFFF" >
-            </LinearLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="58dp" >
-
-                <TextView
-                    android:id="@+id/textView2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/Mensaje" />
-
-                <EditText
-                    android:id="@+id/editText1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentLeft="true"
-                    android:ems="10" />
-            </RelativeLayout>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="1.5dp"
@@ -146,15 +69,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="3.62" >
-
-                <SeekBar
-                    android:id="@+id/seekBar1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_below="@+id/textView4"
-                    android:layout_marginTop="38dp" />
+                android:layout_weight="5.49" >
 
                 <TextView
                     android:id="@+id/textView4"
@@ -163,6 +78,14 @@
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
                     android:text="@string/Volumen" />
+
+                <SeekBar
+                    android:id="@+id/seekBar1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true" />
+
             </RelativeLayout>
 
             <LinearLayout
@@ -176,8 +99,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.46" >
+        android:layout_height="118dp"
+        android:layout_weight="0.42" >
 
         <TextView
             android:id="@+id/textView5"
@@ -187,15 +110,51 @@
             android:layout_centerHorizontal="true"
             android:text="@string/Destination" />
 
+        <TextView
+            android:id="@+id/D"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageButton3"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="14dp"
+            android:text="Distancia" />
+
+        <SeekBar
+            android:id="@+id/DistBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/D" />
+
         <ImageButton
             android:id="@+id/imageButton3"
             android:layout_width="69dp"
             android:layout_height="80dp"
+            android:layout_below="@+id/textView5"
             android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
+            android:layout_marginTop="18dp"
             android:adjustViewBounds="true"
             android:src="@drawable/calendar" />
 
+        <TextView
+            android:id="@+id/km"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="14dp"
+            android:text="0 km" />
+
     </RelativeLayout>
+
+    <Button
+        android:id="@+id/confirm"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dip"
+        android:layout_marginRight="15dip"
+        android:layout_marginTop="15dip"
+        android:gravity="center_horizontal|center"
+        android:text="Confirmar" />
 
 </LinearLayout>
