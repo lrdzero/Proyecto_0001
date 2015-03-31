@@ -16,24 +16,13 @@ import android.app.AlarmManager;
 
 @SuppressLint("ServiceCast")
 public class Alarm extends BroadcastReceiver{
-		Uri notification =RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
-		Ringtone r;
+		
 		private static final int ALARM_REQUEST_CODE = 1;
 		@Override
 		public void onReceive(Context context, Intent intent) {
 			// TODO Auto-generated method stub
-			/*
-			PowerManager pm =(PowerManager) context.getSystemService(Context.POWER_SERVICE);
-			PowerManager.WakeLock wl = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,"");
-			Vibrator vibra = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
-			r= RingtoneManager.getRingtone(context, notification);
-			wl.acquire();
 			
-			vibra.vibrate(2000);
-			r.play();
-			wl.release();
-			*/
-			Toast.makeText(context,"alarmaaaa", Toast.LENGTH_LONG).show();
+			
 			showScreem(context);
 			
 		}
