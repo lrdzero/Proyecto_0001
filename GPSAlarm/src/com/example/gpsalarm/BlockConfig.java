@@ -52,7 +52,7 @@ public class BlockConfig extends Activity {
 		//Botón de confirmación
 		Button confirm =(Button)findViewById(R.id.confirm);
 		final SeekBar sb = (SeekBar)findViewById(R.id.DistBar);
-		final TextView tv =(TextView)findViewById(R.id.km);
+		//final TextView tv =(TextView)findViewById(R.id.km);
 		 
 		confirm.setOnClickListener(new OnClickListener(){
 			public void onClick(View v){
@@ -65,9 +65,9 @@ public class BlockConfig extends Activity {
 					// TODO - Set Activity's result with result code RESULT_OK
 				    //Toast.makeText(BlockConfig.this, "siuu", Toast.LENGTH_SHORT).show();
 				setResult(RESULT_OK,intent);
-				Log.i("IEEEEEEE", "Entered onActivityResult()");
-				Intent i =new Intent(BlockConfig.this,Alarm.class);
-				service.onStart(BlockConfig.this,i,5*1000);
+				
+				
+				service.onStart(BlockConfig.this,5000);
 					// TODO - Finish the Activity
 				finish();
 					

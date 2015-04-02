@@ -25,7 +25,7 @@ public class GPSAlarmService extends Service {
 
 
 
-    public void onStart(Context context,Intent intent, int startId)
+    public void onStart(Context context, int startId)
     {
         alarm.SetAlarm(context,startId);
     }
