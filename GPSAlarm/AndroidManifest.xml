@@ -4,6 +4,13 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.WAKE_LOCK" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.VIBRATE" >
+    </uses-permission>
+
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="21" />
@@ -22,9 +29,33 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <receiver android:name=".Alarm" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" >
+                </action>
+            </intent-filter>
+        </receiver>
+
         <activity
             android:name=".BlockConfig"
             android:label="@string/title_activity_block_config" >
+        </activity>
+        <activity
+            android:name=".AlarmInterface"
+            android:label="@string/title_activity_alarm_interface" >
+        </activity>
+        <activity
+            android:name=".AlarmControl"
+            android:label="@string/title_activity_alarm_control" >
+        </activity>
+        <activity
+            android:name=".ControlAlarma"
+            android:label="@string/title_activity_control_alarma" >
+        </activity>
+        <activity
+            android:name=".ActividadPrueba"
+            android:label="@string/title_activity_actividad_prueba" >
         </activity>
     </application>
 
